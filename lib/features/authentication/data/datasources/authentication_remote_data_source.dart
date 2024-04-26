@@ -3,15 +3,16 @@ import 'package:flutter/foundation.dart';
 import 'package:vascomm_test/features/authentication/data/models/auth_response_model.dart';
 import 'package:vascomm_test/features/authentication/domain/entities/login_params.dart';
 
-abstract class AuthenticationRepository {
+abstract class AuthenticationRemoteDataSource {
   /// Requries [data] params with [LoginParams] type
   Future<AuthResponseModel> login(LoginParams data);
 }
 
-class AuthenticationRepositoryImpl implements AuthenticationRepository {
+class AuthenticationRemoteDataSourceImpl
+    implements AuthenticationRemoteDataSource {
   final Dio _dio;
 
-  const AuthenticationRepositoryImpl(Dio dio) : _dio = dio;
+  const AuthenticationRemoteDataSourceImpl(Dio dio) : _dio = dio;
 
   @override
   Future<AuthResponseModel> login(LoginParams data) async {
