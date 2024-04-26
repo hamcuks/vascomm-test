@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
 
 class LoginView extends StatelessWidget {
@@ -16,6 +19,7 @@ class LoginView extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  /// Greeting Text
                   Row(
                     children: [
                       Text(
@@ -46,6 +50,8 @@ class LoginView extends StatelessWidget {
                 ],
               ),
             ),
+
+            /// Hero image: Medical record illustration
             Align(
               alignment: Alignment.centerRight,
               child: Image.asset(
@@ -53,20 +59,77 @@ class LoginView extends StatelessWidget {
                 scale: 3,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Form(
+
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
-                    AppInputForm(
-                      title: 'Email',
-                      hintText: 'Masukkan email anda',
+                    /// Login Form
+                    Form(
+                      child: Column(
+                        children: [
+                          const AppInputForm(
+                            title: 'Email',
+                            hintText: 'Masukkan email anda',
+                          ),
+                          const SizedBox(height: 40),
+                          const AppInputForm(
+                            title: 'Password',
+                            hintText: 'Masukkan password anda',
+                            suffixText: 'Lupa Password anda ?',
+                          ),
+                          const SizedBox(height: 40),
+                          AppButton(
+                            title: 'Next',
+                            icon: SvgPicture.asset(
+                                'assets/icons/chevron-right.svg'),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
                     ),
-                    SizedBox(height: 40),
-                    AppInputForm(
-                      title: 'Password',
-                      hintText: 'Masukkan password anda',
-                      suffixText: 'Lupa Password anda ?',
+                    const SizedBox(height: 30),
+
+                    /// User auth option(s)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Belum punya akun ?',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: const Color(0xFFBEBEBE),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Daftar sekarang',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+
+                    /// Copyright text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('assets/icons/copyright-ic.svg'),
+                        const SizedBox(width: 4),
+                        Text(
+                          'SILK. all right reserved.',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            color: const Color(0xFFBEBEBE),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
