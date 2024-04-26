@@ -79,6 +79,7 @@ class LoginView extends StatelessWidget {
                             title: 'Password',
                             hintText: 'Masukkan password anda',
                             suffixText: 'Lupa Password anda ?',
+                            isObscure: true,
                           ),
                           const SizedBox(height: 40),
                           AppButton(
