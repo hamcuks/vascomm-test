@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/features/authentication/presentation/views/register_view.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
 
@@ -81,9 +82,10 @@ class LoginView extends StatelessWidget {
                           ),
                           const SizedBox(height: 40),
                           AppButton(
-                            title: 'Next',
+                            title: 'Login',
                             icon: SvgPicture.asset(
-                                'assets/icons/chevron-right.svg'),
+                              'assets/icons/chevron-right.svg',
+                            ),
                             onPressed: () {},
                           ),
                         ],
@@ -104,11 +106,21 @@ class LoginView extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 8),
-                        Text(
-                          'Daftar sekarang',
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const RegisterView(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Daftar sekarang',
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            ),
                           ),
                         ),
                       ],
