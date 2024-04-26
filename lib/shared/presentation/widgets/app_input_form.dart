@@ -27,10 +27,12 @@ class AppInputForm extends StatefulWidget {
 
 class _AppInputFormState extends State<AppInputForm> {
   TextEditingController? _controller;
+  bool? _isObscure;
 
   @override
   void initState() {
     _controller = widget.controller;
+    _isObscure = widget.isObscure;
     super.initState();
   }
 
@@ -38,6 +40,21 @@ class _AppInputFormState extends State<AppInputForm> {
   void dispose() {
     _controller?.dispose();
     super.dispose();
+  }
+
+  Widget? _getPrefixIcon(bool? state) {
+    if (widget.prefixIcon != null) return widget.prefixIcon;
+    if (state == null) return null;
+
+    return GestureDetector(
+      onTap: () {
+        _isObscure = !(_isObscure ?? false);
+        setState(() {});
+      },
+      child: state
+          ? const Icon(Icons.visibility)
+          : const Icon(Icons.visibility_off),
+    );
   }
 
   @override
@@ -84,7 +101,7 @@ class _AppInputFormState extends State<AppInputForm> {
           ),
           child: TextFormField(
             controller: _controller,
-            obscureText: widget.isObscure ?? false,
+            obscureText: _isObscure ?? false,
             decoration: InputDecoration(
               hintText: widget.hintText,
               // contentPadding:
@@ -94,7 +111,7 @@ class _AppInputFormState extends State<AppInputForm> {
                 fontWeight: FontWeight.w400,
               ),
               prefixIcon: widget.prefixIcon,
-              suffixIcon: widget.suffixIcon,
+              suffixIcon: _getPrefixIcon(_isObscure),
               border: InputBorder.none,
             ),
           ),
