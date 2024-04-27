@@ -8,6 +8,7 @@ import 'package:vascomm_test/shared/presentation/widgets/app_drawer.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
 import 'package:vascomm_test/shared/presentation/widgets/custom_tab_bar.dart';
 import 'package:vascomm_test/shared/presentation/widgets/notification_banner.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 import '../widgets/category_pill.dart';
 
@@ -101,7 +102,7 @@ class _HospitalListState extends State<_HospitalList>
           style: GoogleFonts.poppins(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            color: const Color(0xFF002060),
+            color: kTitle,
           ),
         ),
         const SizedBox(height: 16),
@@ -230,7 +231,7 @@ class _MedicalTrackCard extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 16),
-                color: const Color(0xFFBEBEBE).withOpacity(0.16),
+                color: kGrey.withOpacity(0.16),
                 blurRadius: 24,
               )
             ],
@@ -311,7 +312,7 @@ class _CovidSpecialServiceCard extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 16),
-                color: const Color(0xFFBEBEBE).withOpacity(0.16),
+                color: kGrey.withOpacity(0.16),
                 blurRadius: 24,
               )
             ],
@@ -402,7 +403,7 @@ class _MedicalSolutionCard extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 16),
-                color: const Color(0xFF002060).withOpacity(0.24),
+                color: kTitle.withOpacity(0.24),
                 blurRadius: 24,
               )
             ],

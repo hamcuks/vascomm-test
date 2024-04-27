@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
@@ -126,7 +127,7 @@ class RegisterView extends StatelessWidget {
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
-                          color: const Color(0xFFBEBEBE),
+                          color: kGrey,
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -157,7 +158,7 @@ class RegisterView extends StatelessWidget {
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
                           fontSize: 12,
-                          color: const Color(0xFFBEBEBE),
+                          color: kGrey,
                         ),
                       ),
                     ],

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vascomm_test/features/profile/presentation/views/profile_view.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({
@@ -60,7 +61,7 @@ class AppDrawer extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: const Color(0xFF002060),
+                            color: kTitle,
                           ),
                         ),
                         Text(
@@ -68,7 +69,7 @@ class AppDrawer extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: const Color(0xFF002060).withOpacity(.55),
+                            color: kTitle.withOpacity(.55),
                           ),
                         ),
                       ],
@@ -110,7 +111,7 @@ class AppDrawer extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF002060),
+                        color: kTitle,
                       ),
                     ),
                     const SizedBox(width: 16),
@@ -130,7 +131,7 @@ class AppDrawer extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFFBEBEBE),
+                        color: kGrey,
                       ),
                     ),
                     const Spacer(),
@@ -139,7 +140,7 @@ class AppDrawer extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
-                        color: const Color(0xFFBEBEBE),
+                        color: kGrey,
                       ),
                     ),
                   ],
@@ -174,13 +175,13 @@ class _DrawerItemLink extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: const Color(0xFF002060).withOpacity(.55),
+              color: kTitle.withOpacity(.55),
             ),
           ),
           const SizedBox(width: 12),
           Icon(
             Icons.chevron_right,
-            color: const Color(0xFF002060).withOpacity(.55),
+            color: kTitle.withOpacity(.55),
           )
         ],
       ),

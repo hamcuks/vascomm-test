@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
@@ -17,7 +18,7 @@ class ItemCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, 16),
-            color: const Color(0xFFBEBEBE).withOpacity(0.16),
+            color: kGrey.withOpacity(0.16),
             blurRadius: 16,
           )
         ],
@@ -33,7 +34,7 @@ class ItemCard extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: const Color(0xFFBEBEBE),
+                  color: kGrey,
                 ),
               )
             ],
@@ -60,7 +61,7 @@ class ItemCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
-                      color: const Color(0xFFFF7200),
+                      color: kOrange,
                     ),
                   ),
                   const SizedBox(width: 16),

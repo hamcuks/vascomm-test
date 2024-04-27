@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vascomm_test/shared/extensions/string_extension.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class AppInputForm extends StatefulWidget {
   const AppInputForm({
@@ -75,7 +76,7 @@ class _AppInputFormState extends State<AppInputForm> {
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  color: const Color(0xFF002060),
+                  color: kTitle,
                 ),
               ),
               const Spacer(),
@@ -101,7 +102,7 @@ class _AppInputFormState extends State<AppInputForm> {
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 16),
-                color: const Color(0xFFBEBEBE).withOpacity(0.16),
+                color: kGrey.withOpacity(0.16),
                 blurRadius: 16,
               )
             ],

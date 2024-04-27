@@ -9,6 +9,7 @@ import 'package:vascomm_test/features/authentication/presentation/views/register
 import 'package:vascomm_test/injector.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -158,7 +159,7 @@ class _LoginViewState extends State<LoginView> {
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w400,
                               fontSize: 14,
-                              color: const Color(0xFFBEBEBE),
+                              color: kGrey,
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -194,7 +195,7 @@ class _LoginViewState extends State<LoginView> {
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w400,
                               fontSize: 12,
-                              color: const Color(0xFFBEBEBE),
+                              color: kGrey,
                             ),
                           ),
                         ],

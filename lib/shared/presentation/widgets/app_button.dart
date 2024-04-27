@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
@@ -29,7 +30,7 @@ class AppButton extends StatelessWidget {
       width: width ?? double.maxFinite,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: backgroundColor ?? const Color(0xFF002060),
+          backgroundColor: backgroundColor ?? kTitle,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: borderRadius ?? BorderRadius.circular(8),

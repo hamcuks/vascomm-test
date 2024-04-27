@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class CategoryPill extends StatelessWidget {
   const CategoryPill({
@@ -16,12 +17,12 @@ class CategoryPill extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
-        color: isSelected ? const Color(0xFF002060) : Colors.white,
+        color: isSelected ? kTitle : Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, 16),
-            color: const Color(0xFFBEBEBE).withOpacity(0.16),
+            color: kGrey.withOpacity(0.16),
             blurRadius: 24,
           )
         ],
@@ -32,7 +33,7 @@ class CategoryPill extends StatelessWidget {
           style: GoogleFonts.poppins(
             fontSize: 12,
             fontWeight: FontWeight.w600,
-            color: isSelected ? Colors.white : const Color(0xFF002060),
+            color: isSelected ? Colors.white : kTitle,
           ),
         ),
       ),

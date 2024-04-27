@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar({
@@ -21,7 +22,7 @@ class CustomTabBar extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, 16),
-            color: const Color(0xFFBEBEBE).withOpacity(0.16),
+            color: kGrey.withOpacity(0.16),
             blurRadius: 24,
           )
         ],
@@ -29,19 +30,19 @@ class CustomTabBar extends StatelessWidget {
       child: TabBar(
         indicatorSize: TabBarIndicatorSize.tab,
         indicator: BoxDecoration(
-          color: const Color(0xFF00D9D5),
+          color: kSecondary,
           borderRadius: BorderRadius.circular(200),
         ),
         controller: _controller,
         labelStyle: GoogleFonts.poppins(
           fontSize: 14,
           fontWeight: FontWeight.w600,
-          color: const Color(0xFF002060),
+          color: kTitle,
         ),
         unselectedLabelStyle: GoogleFonts.poppins(
           fontSize: 14,
           fontWeight: FontWeight.w400,
-          color: const Color(0xFF002060),
+          color: kTitle,
         ),
         dividerColor: Colors.transparent,
         padding: const EdgeInsets.all(4),

@@ -6,6 +6,7 @@ import 'package:vascomm_test/shared/presentation/widgets/app_drawer.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
 import 'package:vascomm_test/shared/presentation/widgets/custom_tab_bar.dart';
 import 'package:vascomm_test/shared/presentation/widgets/notification_banner.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -82,7 +83,7 @@ class _ProfileViewState extends State<ProfileView>
                         boxShadow: [
                           BoxShadow(
                             offset: const Offset(0, 16),
-                            color: const Color(0xFFBEBEBE).withOpacity(0.16),
+                            color: kGrey.withOpacity(0.16),
                             blurRadius: 24,
                           )
                         ],
@@ -96,7 +97,7 @@ class _ProfileViewState extends State<ProfileView>
                             style: GoogleFonts.poppins(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: const Color(0xFF002060),
+                              color: kTitle,
                             ),
                           ),
                           const SizedBox(height: 16),
@@ -109,7 +110,7 @@ class _ProfileViewState extends State<ProfileView>
                                     width: 48,
                                     height: 48,
                                     decoration: const BoxDecoration(
-                                      color: Color(0xFF00D9D5),
+                                      color: kSecondary,
                                       shape: BoxShape.circle,
                                     ),
                                     child: const Icon(
@@ -195,7 +196,7 @@ class _ProfileViewState extends State<ProfileView>
                                           'Pastikan profile anda terisi dengan benar, data pribadi anda terjamin keamanannya',
                                           style: GoogleFonts.poppins(
                                             fontSize: 12,
-                                            color: const Color(0xFF6A6A6A),
+                                            color: kDarkGrey,
                                           ),
                                         ),
                                       )
@@ -235,7 +236,7 @@ class _ProfileCard extends StatelessWidget {
       width: double.maxFinite,
       height: 188,
       decoration: BoxDecoration(
-        color: const Color(0xFF002060),
+        color: kTitle,
         borderRadius: BorderRadius.circular(20),
       ),
       clipBehavior: Clip.antiAlias,

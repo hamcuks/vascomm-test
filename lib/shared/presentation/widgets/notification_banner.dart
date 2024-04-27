@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/shared/styles/colors.dart';
 
 class NotificationBanner extends StatelessWidget {
   const NotificationBanner({
@@ -11,7 +12,7 @@ class NotificationBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      color: const Color(0xFF002060),
+      color: kTitle,
       child: Stack(
         clipBehavior: Clip.antiAlias,
         children: [
