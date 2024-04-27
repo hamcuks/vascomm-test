@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:vascomm_test/features/authentication/presentation/views/login_view.dart';
+import 'package:vascomm_test/features/main/presentation/views/home_view.dart';
 import 'package:vascomm_test/injector.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginView(),
+      home: const HomeView(),
       builder: EasyLoading.init(),
     );
   }
