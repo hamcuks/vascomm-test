@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/features/authentication/presentation/views/login_view.dart';
 import 'package:vascomm_test/features/profile/presentation/views/profile_view.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 import 'package:vascomm_test/shared/styles/colors.dart';
@@ -97,7 +98,13 @@ class AppDrawer extends StatelessWidget {
                         height: 32,
                         backgroundColor: Colors.red,
                         borderRadius: BorderRadius.circular(200),
-                        onPressed: () {},
+                        onPressed: () => Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginView(),
+                          ),
+                          (Route<dynamic> route) => false,
+                        ),
                       ),
                     ],
                   ),
