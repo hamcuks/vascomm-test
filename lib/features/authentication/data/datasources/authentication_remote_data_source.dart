@@ -26,6 +26,10 @@ class AuthenticationRemoteDataSourceImpl
       );
 
       return AuthResponseModel.fromJson(response.data);
+    } on DioException catch (e) {
+      /// Throw error message from API if error not null.
+      /// Otherwise, return error type of DioExecption
+      throw e.response?.data?['error'] ?? e.type;
     } catch (e) {
       /// Return general error message in release mode
       if (!kDebugMode) throw 'Terjadi kesalahan saat melakukan login';
