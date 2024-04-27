@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/features/main/presentation/widgets/hospital_card.dart';
 import 'package:vascomm_test/features/main/presentation/widgets/item_card.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_drawer.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
+import 'package:vascomm_test/shared/presentation/widgets/custom_tab_bar.dart';
 import 'package:vascomm_test/shared/presentation/widgets/notification_banner.dart';
 
 import '../widgets/category_pill.dart';
 
 class HomeView extends StatelessWidget {
-  HomeView({super.key});
-
   final GlobalKey<ScaffoldState> _key = GlobalKey();
+
+  HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +61,8 @@ class HomeView extends StatelessWidget {
                   _CategorySlider(),
                   const SizedBox(height: 40),
                   const _ItemListSlider(),
+                  const SizedBox(height: 40),
+                  const _HospitalList(),
                 ],
               ),
             ),
@@ -66,6 +70,65 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _HospitalList extends StatefulWidget {
+  const _HospitalList();
+
+  @override
+  State<_HospitalList> createState() => _HospitalListState();
+}
+
+class _HospitalListState extends State<_HospitalList>
+    with TickerProviderStateMixin {
+  late final TabController _controller;
+
+  @override
+  void initState() {
+    _controller = TabController(length: 2, vsync: this);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Pilih Tipe Layanan Kesehatan Anda',
+          style: GoogleFonts.poppins(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: const Color(0xFF002060),
+          ),
+        ),
+        const SizedBox(height: 16),
+        CustomTabBar(
+          controller: _controller,
+          tabs: const [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              child: Text('Satuan'),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              child: Text('Paket Pemeriksaan'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 40),
+        ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: 5,
+          separatorBuilder: (_, __) => const SizedBox(height: 16),
+          itemBuilder: (context, index) {
+            return const HospitalCard();
+          },
+        ),
+      ],
     );
   }
 }

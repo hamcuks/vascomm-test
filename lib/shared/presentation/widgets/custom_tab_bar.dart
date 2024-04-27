@@ -34,16 +34,17 @@ class CustomTabBar extends StatelessWidget {
         ),
         controller: _controller,
         labelStyle: GoogleFonts.poppins(
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: FontWeight.w600,
           color: const Color(0xFF002060),
         ),
         unselectedLabelStyle: GoogleFonts.poppins(
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: FontWeight.w400,
           color: const Color(0xFF002060),
         ),
         dividerColor: Colors.transparent,
+        padding: const EdgeInsets.all(4),
         tabs: tabs,
       ),
     );
