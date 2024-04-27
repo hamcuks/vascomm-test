@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/features/profile/presentation/views/profile_view.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -16,109 +18,137 @@ class AppDrawer extends StatelessWidget {
       ),
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 64),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Positioned(
+            top: 20,
+            left: 20,
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: Container(
+                width: 32,
+                height: 32,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.circle,
+                ),
+                child: const Center(
+                  child: Icon(Icons.close),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 64),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CircleAvatar(
-                  radius: 24,
-                  backgroundImage: NetworkImage(
-                    'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745',
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      radius: 24,
+                      backgroundImage: NetworkImage(
+                        'https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745',
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Angga Praja',
+                          style: GoogleFonts.poppins(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF002060),
+                          ),
+                        ),
+                        Text(
+                          'Membership BBLK',
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: const Color(0xFF002060).withOpacity(.55),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(height: 40),
+                SizedBox(
+                  width: 200,
+                  child: Column(
+                    children: [
+                      _DrawerItemLink(
+                        title: 'Profil Saya',
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProfileView(),
+                          ),
+                        ),
+                      ),
+                      const _DrawerItemLink(title: 'Pengaturan'),
+                      const SizedBox(height: 40),
+                      AppButton(
+                        title: 'Keluar',
+                        height: 32,
+                        backgroundColor: Colors.red,
+                        borderRadius: BorderRadius.circular(200),
+                        onPressed: () {},
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(width: 12),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                const SizedBox(height: 64),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Angga Praja',
+                      'Ikuti kami di',
                       style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
                         color: const Color(0xFF002060),
                       ),
                     ),
+                    const SizedBox(width: 16),
+                    SvgPicture.asset('assets/icons/facebook-ic.svg'),
+                    const SizedBox(width: 8),
+                    SvgPicture.asset('assets/icons/instagram-ic.svg'),
+                    const SizedBox(width: 8),
+                    SvgPicture.asset('assets/icons/twitter-ic.svg'),
+                  ],
+                ),
+                const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
                     Text(
-                      'Membership BBLK',
+                      'FAQ',
                       style: GoogleFonts.poppins(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: const Color(0xFF002060).withOpacity(.55),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFBEBEBE),
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      'Terms and Conditions',
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xFFBEBEBE),
                       ),
                     ),
                   ],
-                )
-              ],
-            ),
-            const SizedBox(height: 40),
-            SizedBox(
-              width: 200,
-              child: Column(
-                children: [
-                  _DrawerItemLink(
-                    title: 'Profil Saya',
-                    onTap: () {},
-                  ),
-                  const _DrawerItemLink(title: 'Pengaturan'),
-                  const SizedBox(height: 40),
-                  AppButton(
-                    title: 'Keluar',
-                    height: 32,
-                    backgroundColor: Colors.red,
-                    borderRadius: BorderRadius.circular(200),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 64),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Ikuti kami di',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF002060),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                SvgPicture.asset('assets/icons/facebook-ic.svg'),
-                const SizedBox(width: 8),
-                SvgPicture.asset('assets/icons/instagram-ic.svg'),
-                const SizedBox(width: 8),
-                SvgPicture.asset('assets/icons/twitter-ic.svg'),
-              ],
-            ),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'FAQ',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: const Color(0xFFBEBEBE),
-                  ),
-                ),
-                const Spacer(),
-                Text(
-                  'Terms and Conditions',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: const Color(0xFFBEBEBE),
-                  ),
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
