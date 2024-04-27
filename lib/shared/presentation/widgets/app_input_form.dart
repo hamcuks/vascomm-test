@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vascomm_test/shared/extensions/string_extension.dart';
 
 class AppInputForm extends StatefulWidget {
   const AppInputForm({
@@ -8,37 +9,39 @@ class AppInputForm extends StatefulWidget {
     this.controller,
     this.hintText,
     this.suffixText,
+    this.isRequired = false,
     this.isObscure,
     this.suffixIcon,
     this.prefixIcon,
+    this.keyboardType = TextInputType.text,
   });
 
   final TextEditingController? controller;
   final String title;
   final String? hintText;
   final String? suffixText;
+  final bool isRequired;
   final bool? isObscure;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
+  final TextInputType keyboardType;
 
   @override
   State<AppInputForm> createState() => _AppInputFormState();
 }
 
 class _AppInputFormState extends State<AppInputForm> {
-  TextEditingController? _controller;
   bool? _isObscure;
 
   @override
   void initState() {
-    _controller = widget.controller;
     _isObscure = widget.isObscure;
     super.initState();
   }
 
   @override
   void dispose() {
-    _controller?.dispose();
+    widget.controller?.dispose();
     super.dispose();
   }
 
@@ -100,8 +103,23 @@ class _AppInputFormState extends State<AppInputForm> {
             ],
           ),
           child: TextFormField(
-            controller: _controller,
+            controller: widget.controller,
             obscureText: _isObscure ?? false,
+            keyboardType: widget.keyboardType,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: (value) {
+              if (!widget.isRequired && (value == null || value.isEmpty)) {
+                return 'Field must be filled!';
+              }
+
+              if (widget.keyboardType == TextInputType.emailAddress &&
+                  value != null &&
+                  !value.isEmailValid) {
+                return 'Invalid email format!';
+              }
+
+              return null;
+            },
             decoration: InputDecoration(
               hintText: widget.hintText,
               // contentPadding:
