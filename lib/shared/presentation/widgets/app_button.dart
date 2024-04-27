@@ -9,6 +9,8 @@ class AppButton extends StatelessWidget {
     this.width,
     this.height,
     this.icon,
+    this.backgroundColor,
+    this.borderRadius,
     this.onPressed,
   });
 
@@ -16,6 +18,8 @@ class AppButton extends StatelessWidget {
   final double? height;
   final String title;
   final Widget? icon;
+  final Color? backgroundColor;
+  final BorderRadiusGeometry? borderRadius;
   final Function()? onPressed;
 
   @override
@@ -25,10 +29,10 @@ class AppButton extends StatelessWidget {
       width: width ?? double.maxFinite,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF002060),
+          backgroundColor: backgroundColor ?? const Color(0xFF002060),
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: borderRadius ?? BorderRadius.circular(8),
           ),
         ),
         onPressed: onPressed,

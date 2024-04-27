@@ -1,54 +1,68 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vascomm_test/features/main/presentation/widgets/item_card.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
+import 'package:vascomm_test/shared/presentation/widgets/app_drawer.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
-import 'package:vascomm_test/shared/presentation/widgets/navigation_bar.dart';
 import 'package:vascomm_test/shared/presentation/widgets/notification_banner.dart';
 
 import '../widgets/category_pill.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  HomeView({super.key});
+
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
+        key: _key,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          surfaceTintColor: Colors.white,
+          leading: GestureDetector(
+            onTap: () {
+              _key.currentState?.openEndDrawer();
+            },
+            child: SvgPicture.asset(
+              'assets/icons/dash-menu-ic.svg',
+              height: 16,
+              width: 16,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          actions: [
+            SvgPicture.asset('assets/icons/cart-ic.svg'),
+            const SizedBox(width: 32),
+            SvgPicture.asset('assets/icons/notif-new-ic.svg'),
+            const SizedBox(width: 16),
+          ],
+        ),
+        endDrawer: const AppDrawer(),
+        body: ListView(
           children: [
-            const AppNavigationBar(),
-            const SizedBox(height: 16),
-            Expanded(
-              child: ListView(
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 24),
-                        const _MedicalSolutionCard(),
-                        const SizedBox(height: 40),
-                        const _CovidSpecialServiceCard(),
-                        const SizedBox(height: 40),
-                        const _MedicalTrackCard(),
-                        const SizedBox(height: 40),
-                        const _HomeItemSearch(),
-                        const SizedBox(height: 40),
-                        _CategorySlider(),
-                        const SizedBox(height: 40),
-                        const _ItemListSlider(),
-                      ],
-                    ),
-                  ),
-                  const NotificationBanner()
+                  const SizedBox(height: 24),
+                  const _MedicalSolutionCard(),
+                  const SizedBox(height: 40),
+                  const _CovidSpecialServiceCard(),
+                  const SizedBox(height: 40),
+                  const _MedicalTrackCard(),
+                  const SizedBox(height: 40),
+                  const _HomeItemSearch(),
+                  const SizedBox(height: 40),
+                  _CategorySlider(),
+                  const SizedBox(height: 40),
+                  const _ItemListSlider(),
                 ],
               ),
             ),
+            const NotificationBanner()
           ],
         ),
       ),

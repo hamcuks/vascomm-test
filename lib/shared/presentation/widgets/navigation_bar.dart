@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AppNavigationBar extends StatelessWidget {
@@ -12,7 +13,10 @@ class AppNavigationBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          SvgPicture.asset('assets/icons/dash-menu-ic.svg'),
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset('assets/icons/dash-menu-ic.svg'),
+          ),
           const Spacer(),
           SvgPicture.asset('assets/icons/cart-ic.svg'),
           const SizedBox(width: 32),
