@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:vascomm_test/features/main/presentation/widgets/item_card.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_button.dart';
 import 'package:vascomm_test/shared/presentation/widgets/app_input_form.dart';
+import 'package:vascomm_test/shared/presentation/widgets/navigation_bar.dart';
 import 'package:vascomm_test/shared/presentation/widgets/notification_banner.dart';
 
 import '../widgets/category_pill.dart';
@@ -20,18 +21,8 @@ class HomeView extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                children: [
-                  SvgPicture.asset('assets/icons/dash-menu-ic.svg'),
-                  const Spacer(),
-                  SvgPicture.asset('assets/icons/cart-ic.svg'),
-                  const SizedBox(width: 32),
-                  SvgPicture.asset('assets/icons/notif-new-ic.svg'),
-                ],
-              ),
-            ),
+            const AppNavigationBar(),
+            const SizedBox(height: 16),
             Expanded(
               child: ListView(
                 children: [
