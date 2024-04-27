@@ -112,7 +112,7 @@ class _LoginViewState extends State<LoginView> {
                                     );
                                   case LoginStatus.success:
                                     EasyLoading.showSuccess(
-                                      'Login successfully!',
+                                      'Login successfully\n Token: ${state.data}',
                                       maskType: EasyLoadingMaskType.black,
                                     );
                                   case LoginStatus.failed:

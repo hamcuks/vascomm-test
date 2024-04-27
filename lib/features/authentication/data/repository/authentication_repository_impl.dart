@@ -18,7 +18,8 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       /// Exec the login function from remote data source
       final source = await _dataSource.login(data);
 
-      /// Save token data into shared preference
+      /// We also can store user access token in local storage. But, in this
+      /// case, we not implemented in
 
       return source.toEntity();
     } catch (e) {

@@ -24,10 +24,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(state.copyWith(status: LoginStatus.loading));
 
       /// Exec login usecase and pass the LoginParams data
-      await _usecase(event.data);
+      final usecase = await _usecase(event.data);
 
       /// Emit status to success if there is no error occurred
-      emit(state.copyWith(status: LoginStatus.success));
+      emit(state.copyWith(status: LoginStatus.success, data: usecase.token));
     } catch (e) {
       /// Emit status to failed if error occurred
       emit(
