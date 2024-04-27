@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vascomm_test/features/profile/presentation/views/profile_view.dart';
@@ -86,7 +85,7 @@ class AppDrawer extends StatelessWidget {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ProfileView(),
+                            builder: (context) => const ProfileView(),
                           ),
                         ),
                       ),
